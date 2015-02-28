@@ -54,14 +54,14 @@ return array(
 
 
         // Using homestead, the username and password is supposed to be homestead/secret. I'm confused
-        // I'm creating an "local-dev" environment folder to match the homestead environment
+        // I'm creating an "homestead" environment folder to match the homestead environment
 
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'laravel',
-			'username'  => 'root',
-			'password'  => 'root',
+			'database'  => 'hanifa',
+			'username'  => 'homestead',
+			'password'  => 'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-    'local' => array('homestead'), // Change this to your local machine hostname.
+    'local-dev' => array('homestead'), // Change this to your local machine hostname.
     'staging' => array('homestead-staging'),
     'production' => array('homestead-production'),
 
