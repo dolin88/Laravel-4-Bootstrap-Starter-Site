@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<?php
+$gender="M";
+if(Auth::check())
+$gender = Auth::user()->gender;
+
+?>
+
 <html lang="en">
 	<head>
 		<!-- Basic Page Needs
@@ -25,8 +33,13 @@
 		<!-- CSS
 		================================================== -->
         <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+		
         <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-theme.min.css')}}">
-
+		
+		@if($gender=="F")
+			<link rel="stylesheet" href="{{asset('bootstrap/css/navbar-custom.css')}}">
+			
+		@endif
 		<style>
         body {
             padding: 60px 0;
@@ -47,13 +60,15 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
 		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+		
+		
 	</head>
 
 	<body>
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
 		<!-- Navbar -->
-		<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+		<div  class="navbar navbar-default navbar-inverse navbar-fixed-top navbar-custom">
 			 <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -91,10 +106,14 @@
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
-
+			
+			
 			<!-- Content -->
+			<span id="ajaxdiv">
 			@yield('content')
+			</span>
 			<!-- ./ content -->
+			
 		</div>
 		<!-- ./ container -->
 
